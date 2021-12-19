@@ -1,0 +1,3 @@
+import device
+
+device.start()
