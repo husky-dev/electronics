@@ -1,12 +1,12 @@
 PORT=/dev/tty.usbmodem1101
 BAUDRATE=115200
-PROJECT=./air
+PROJECT=./printer
 
 check: FORCE
 	ls /dev/tty.usbmodem*
 
 clear: FORCE
-	rshell -b ${BAUDRATE} -p ${PORT} rm /pyboard/main.py
+	rshell -b ${BAUDRATE} -p ${PORT} rm /pyboard/main.py /pyboard/thermal_printer.py
 
 upload: FORCE
 	rshell -b ${BAUDRATE} -p ${PORT} rsync ${PROJECT} /pyboard
