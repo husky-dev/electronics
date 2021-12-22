@@ -1,10 +1,15 @@
 from machine import UART
 from time import sleep
-from thermal_printer import Thermal_Printer
+from thermal_printer import Thermal_Printer, CODEPAGE_WCP1251
 
-printer = Thermal_Printer(UART(1, baudrate=19200)
+printer = Thermal_Printer(UART(1, baudrate=19200))
 
 def demo():
+  printer.reset()
+  printer.println('Ґанок в Україні')
+  printer.feed(2)
+
+def demo001():
   # Font options
   printer.set_font('B')
   printer.println('FontB')
@@ -36,9 +41,9 @@ def demo():
   printer.println('Bold text')
   printer.bold_off()
 
-  printer.underlineOn()
+  printer.underline_on()
   printer.println('Underlined text')
-  printer.underlineOff()
+  printer.underline_off()
 
   printer.set_size('L')        # Set type size, accepts 'S', 'M', 'L'
   printer.println('Large')
@@ -47,12 +52,12 @@ def demo():
   printer.set_size('S')
   printer.println('Small')
 
-  printer.justify('C')
-  printer.println('normal\nline\nspacing')
-  printer.set_line_height(50)
-  printer.println('Taller\nline\nspacing')
-  printer.set_line_height() # Reset to default
-  printer.justify('L')
+  # printer.justify('C')
+  # printer.println('normal\nline\nspacing')
+  # printer.set_line_height(50)
+  # printer.println('Taller\nline\nspacing')
+  # printer.set_line_height() # Reset to default
+  # printer.justify('L')
 
   # Barcode examples:
   # CODE39 is the most common alphanumeric barcode:

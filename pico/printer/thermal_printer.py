@@ -16,6 +16,13 @@ from machine import Pin, UART
 uart = UART(1, baudrate=19200, tx=Pin(4), rx=Pin(5))
 """
 
+"""
+Number of microseconds to issue one byte to the printer.  11 bits
+(not 8) to accommodate idle, start and stop bits.  Idle time might
+be unnecessary, but erring on side of caution here.
+"""
+from time import sleep_us
+
 # ASCII codes used by some of the printer config commands:
 
 ASCII_TAB = '\t' # Horizontal tab
@@ -104,23 +111,104 @@ CODEPAGE_THAI2 = 45 # Thai 2 character code page
 CODEPAGE_CP856 = 46 # Hebrew character code page
 CODEPAGE_CP874 = 47 # Thai character code page
 
+symbols_map = {
+  'І': 'I',
+  'і': 'i',
+  'Ї': chr(0xaf + 848),
+  'ї': chr(0xbf + 848),
+  'Є': chr(0xaa + 848),
+  'є': chr(0xba + 848),
+  'Ґ': chr(0xa5 + 848),
+  'ґ': chr(0xb4 + 848),
+  'Ë': chr(0xa8 + 848),
+  'ё': chr(0xb8 + 848),
+}
 
 class Thermal_Printer:
-  def __init__(self, uart):
+  def __init__(self, uart, firmware = 268):
     self._uart = uart
     self._print_mode = 0
+    # Time to print a single dot line, in microseconds
+    self._dot_print_time = 30000 # 30ms
+    # Time to feed a single dot line, in microseconds
+    self._dot_feed_time = 2100 #2.1ms
+    self._char_height = 24
+    self._line_spacing = 6
+    self._column = 0
+    self._max_column = 32
+    self._barcode_height = 50
+    self._firmware = firmware
+    self._cur_code_page = 0
 
-  def print(self, msg):
-    self._uart.write(msg)
+  """
+  Sets print and feed speed
+
+  :param number p: print speed
+  :param number f: feed speed
+
+  Printer performance may vary based on the power supply voltage,
+  thickness of paper, phase of the moon and other seemingly random
+  variables.  This method sets the times (in microseconds) for the
+  paper to advance one vertical 'dot' when printing and when feeding.
+  For example, in the default initialized state, normal-sized text is
+  24 dots tall and the line spacing is 30 dots, so the time for one
+  line to be issued is approximately 24 * print time + 6 * feed time.
+  The default print and feed times are based on a random test unit,
+  but as stated above your reality may be influenced by many factors.
+  This lets you tweak the timing to avoid excessive delays and/or
+  overrunning the printer buffer.
+  """
+  def set_timers(self, p, f):
+    self._dot_print_time = p
+    self._dot_feed_time = f
+
+  def reset(self):
+    self.write_bytes(ASCII_ESC, '@')
+    self._column = 0
+    self._max_column = 32
+    self._char_height = 24
+    self._line_spacing = 6
+    self._barcode_height = 50
+    self._cur_code_page = 0
+    if self._firmware >= 264:
+      # Configure tab stops on recent printers
+      self.write_bytes(ASCII_ESC, 'D') # Set tab stops...
+      self.write_bytes(4, 8, 12, 16)   # ...every 4 columns,
+      self.write_bytes(20, 24, 28, 0)  # 0 marks end-of-list.
 
   def println(self, msg):
-    self._uart.write('%s\n' % msg)
-
-  def ln(self):
-    self._uart.write('\n')
+    self.print(msg)
+    self.ln()
 
   def dln(self):
-    self._uart.write('\n\n')
+    self.ln()
+    self.ln()
+
+  def ln(self):
+    self.print('\n')
+
+  def print(self, msg):
+    buffer = bytearray()
+    for symbol in msg:
+      # Mod symbol if it is in map
+      if symbol in symbols_map:
+        symbol = symbols_map[symbol]
+      num = ord(symbol)
+      # Process cyrilic symbols
+      if num > 0x3D0:
+        self.set_code_page(CODEPAGE_WCP1251)
+        num -= 848
+      buffer.append(num)
+      # Calculate delay to feed a paper
+      if symbol is '\n':
+        self._uart.write(buffer)
+        buffer = bytearray()
+        if self._prev_byte == '\n':
+          sleep_us((self._char_height + self._line_spacing) * self._dot_feed_time)
+        else:
+          sleep_us((self._char_height * self._dot_print_time) + (self._line_spacing * self._dot_feed_time))
+      self._prev_byte = symbol
+    if len(buffer): self._uart.write(buffer)
 
   def normal(self):
     self._print_mode = 0
@@ -184,23 +272,46 @@ class Thermal_Printer:
     self.unset_print_mode(BOLD_MASK)
 
   def inverse_on(self):
-    # firmware >= 268
-    self.write_bytes(ASCII_GS, 'B', 1)
+    if self._firmware >= 268:
+      self.write_bytes(ASCII_GS, 'B', 1)
+    else:
+      self.set_print_mode(INVERSE_MASK)
 
   def inverse_off(self):
-    # firmware >= 268
-    self.write_bytes(ASCII_GS, 'B', 0)
+    if self._firmware >= 268:
+      self.write_bytes(ASCII_GS, 'B', 0)
+    else:
+      self.unset_print_mode(INVERSE_MASK)
 
   def upside_down_on(self):
-    self.write_bytes(ASCII_ESC, '{', 1)
+    if self._firmware >= 268:
+      self.write_bytes(ASCII_ESC, '{', 1)
+    else:
+      self.set_print_mode(UPDOWN_MASK)
 
   def upside_down_off(self):
-    # firmware >= 268
-    self.write_bytes(ASCII_ESC, '{', 0)
+    if self._firmware >= 268:
+      self.write_bytes(ASCII_ESC, '{', 0)
+    else:
+      self.set_print_mode(UPDOWN_MASK)
 
   def feed(self, lines):
-    # firmware >= 264
-    self.write_bytes(ASCII_ESC, 'd', lines)
+    """
+    Feeds by the specified number of lines
+    """
+    if self._firmware >= 264:
+      self.write_bytes(ASCII_ESC, 'd', lines)
+      sleep_us(self._dot_feed_time * self._char_height)
+    else:
+      for i in range(lines):
+        self.ln()
+
+  def feed_rows(self, rows):
+    """
+    Feeds by the specified number of individual pixel rows
+    """
+    self.write_bytes(ASCII_ESC, 'J', rows)
+    sleep_us(rows * self._dot_feed_time)
 
   def flush(self):
     self.write_bytes(ASCII_FF)
@@ -241,7 +352,21 @@ class Thermal_Printer:
   def set_barcode_height(self, val):
     if (val < 1):
       val = 1
+    self._barcode_height = val
     self.write_bytes(ASCII_GS, 'h', val)
+
+  def print_barcode(self, text, type):
+    self.feed(1)
+    self.write_bytes(ASCII_GS, 'H', 2)
+    self.write_bytes(ASCII_GS, 'w', 3)
+    self.write_bytes(ASCII_GS, 'k', 3)
+
+    size = len(text)
+    if (size > 255):
+      size = 255
+    self.write_bytes(size)
+    for i in range(0, size - 1):
+      self.write_bytes(text[i])
 
   def set_code_page(self, val = 0):
     """
@@ -251,6 +376,8 @@ class Thermal_Printer:
     """
     if val > 47:
       val = 47
+    if self._cur_code_page is val: return
+    self._cur_code_page = val
     self.write_bytes(ASCII_ESC, 't', val)
 
   def write_bytes(self, *items):
