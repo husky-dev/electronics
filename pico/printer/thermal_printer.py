@@ -1,9 +1,11 @@
 """
 # CSN-A2 Thermal printer
 
+The code on Adafruit Thermal Printer Library (https://github.com/adafruit/Adafruit-Thermal-Printer-Library)
+
+Usefull links:
 - https://www.adafruit.com/product/597
 - https://learn.adafruit.com/mini-thermal-receipt-printer
-- https://github.com/adafruit/Adafruit-Thermal-Printer-Library/blob/master/Adafruit_Thermal.cpp
 
 ## Requirements:
 
@@ -21,7 +23,7 @@ Number of microseconds to issue one byte to the printer.  11 bits
 (not 8) to accommodate idle, start and stop bits.  Idle time might
 be unnecessary, but erring on side of caution here.
 """
-from time import sleep_us
+from time import sleep_us, sleep_ms
 
 # ASCII codes used by some of the printer config commands:
 
@@ -124,6 +126,18 @@ symbols_map = {
   'ё': chr(0xb8 + 848),
 }
 
+# Barcode types
+
+UPC_A = 0   # UPC-A barcode system. 11-12 char */
+UPC_E = 1   # UPC-E barcode system. 11-12 char */
+EAN13 = 2   # EAN13 (JAN13) barcode system. 12-13 char */
+EAN8 = 3    # EAN8 (JAN8) barcode system. 7-8 char */
+CODE39 = 4  # CODE39 barcode system. 1<=num of chars */
+ITF = 5     # ITF barcode system. 1<=num of chars, must be an even number */
+CODABAR = 6 # CODABAR barcode system. 1<=num<=255 */
+CODE93 = 7  # CODE93 barcode system. 1<=num<=255 */
+CODE128 = 8 # CODE128 barcode system. 2<=num<=255 */
+
 class Thermal_Printer:
   def __init__(self, uart, firmware = 268):
     self._uart = uart
@@ -139,6 +153,7 @@ class Thermal_Printer:
     self._barcode_height = 50
     self._firmware = firmware
     self._cur_code_page = 0
+    self._max_chunk_height = 255
 
   """
   Sets print and feed speed
@@ -162,6 +177,28 @@ class Thermal_Printer:
     self._dot_print_time = p
     self._dot_feed_time = f
 
+  # Sets the default settings
+  def set_default(self):
+    self.online()
+    self.justify('L')
+    self.inverse_off()
+    self.double_height_off()
+    self.set_line_height(30)
+    self.bold_off()
+    self.underline_off()
+    self.set_barcode_height(50)
+    self.set_size('s')
+    self.set_charset()
+    self.set_code_page()
+
+  # Put the printer into a low-energy state after the given number
+  # of seconds.
+  def sleep(self, seconds = 1):
+    if self._firmware >= 264:
+      self.write_bytes(ASCII_ESC, '8', seconds, seconds >> 8)
+    else:
+      self.write_bytes(ASCII_ESC, '8', seconds)
+
   def reset(self):
     self.write_bytes(ASCII_ESC, '@')
     self._column = 0
@@ -170,11 +207,39 @@ class Thermal_Printer:
     self._line_spacing = 6
     self._barcode_height = 50
     self._cur_code_page = 0
+    self.set_heat_config()
     if self._firmware >= 264:
       # Configure tab stops on recent printers
       self.write_bytes(ASCII_ESC, 'D') # Set tab stops...
       self.write_bytes(4, 8, 12, 16)   # ...every 4 columns,
       self.write_bytes(20, 24, 28, 0)  # 0 marks end-of-list.
+
+  def wake(self):
+    self.write_bytes(255) # Wake
+    if self._firmware >= 264:
+      sleep_ms(50)
+      self.write_bytes(ASCII_ESC, '8', 0, 0) # Sleep off (important!)
+    else:
+      # Datasheet recommends a 50 ms delay before issuing further commands,
+      # but in practice this alone isn't sufficient (e.g. text size/style
+      # commands may still be misinterpreted on wake). A slightly longer
+      # delay, interspersed with NUL chars (no-ops) seems to help.
+      for i in range(10):
+        self.write_bytes(0)
+        sleep_ms(10)
+
+  """
+  Take the printer back online. Subsequent print commands will be obeyed.
+  """
+  def online(self):
+    self.write_bytes(ASCII_ESC, '=', 1)
+
+  """
+  Take the printer offline. Print commands sent after this will be
+  ignored until 'online' is called.
+  """
+  def offline(self):
+    self.write_bytes(ASCII_ESC, '=', 0)
 
   def println(self, msg):
     self.print(msg)
@@ -200,7 +265,7 @@ class Thermal_Printer:
         num -= 848
       buffer.append(num)
       # Calculate delay to feed a paper
-      if symbol is '\n':
+      if symbol is '\n' or len(buffer) >= self._max_column:
         self._uart.write(buffer)
         buffer = bytearray()
         if self._prev_byte == '\n':
@@ -295,6 +360,45 @@ class Thermal_Printer:
     else:
       self.set_print_mode(UPDOWN_MASK)
 
+  def set_print_mode(self, mask):
+    self._print_mode |= mask
+    self.write_print_mode()
+    self._adjust_char_values(mask)
+
+  def unset_print_mode(self, mask):
+    self._print_mode &= (~mask) & 0xFF
+    self.write_print_mode()
+    self._adjust_char_values(mask)
+
+  def _adjust_char_values(self, print_mode):
+    char_width =0
+    if print_mode & FONT_MASK:
+      # FontB
+      self._char_height = 17
+      char_width = 9
+    else:
+      # FontA
+      self._char_height = 24
+      char_width = 12
+    # Double Width Mode
+    if print_mode & DOUBLE_WIDTH_MASK:
+      self._max_column /= 2
+      char_width *= 2
+    # Double Height Mode
+    if print_mode & DOUBLE_HEIGHT_MASK:
+      self._char_height *= 2
+    self._max_column = (384 / char_width)
+
+  def set_line_height(self, val = 30):
+    if val < 24:
+      val = 24
+    self._line_spacing = 24
+    # The printer doesn't take into account the current text height
+    # when setting line height, making this more akin to inter-line
+    # spacing. Default line spacing is 30 (char height of 24, line
+    # spacing of 6).
+    self.write_bytes(ASCII_ESC, '3', val)
+
   def feed(self, lines):
     """
     Feeds by the specified number of lines
@@ -313,16 +417,11 @@ class Thermal_Printer:
     self.write_bytes(ASCII_ESC, 'J', rows)
     sleep_us(rows * self._dot_feed_time)
 
+  """
+  Flush data pending in the printer 
+  """
   def flush(self):
     self.write_bytes(ASCII_FF)
-
-  def set_print_mode(self, mask):
-    self._print_mode |= mask
-    self.write_print_mode()
-
-  def unset_print_mode(self, mask):
-    self._print_mode &= (~mask) & 0xFF
-    self.write_print_mode()
 
   def write_print_mode(self):
     # print("{0:b}".format(self._print_mode))
@@ -355,30 +454,97 @@ class Thermal_Printer:
     self._barcode_height = val
     self.write_bytes(ASCII_GS, 'h', val)
 
-  def print_barcode(self, text, type):
+  def print_barcode(self, text, barcode_type):
     self.feed(1)
-    self.write_bytes(ASCII_GS, 'H', 2)
-    self.write_bytes(ASCII_GS, 'w', 3)
-    self.write_bytes(ASCII_GS, 'k', 3)
+    if self._firmware >= 264:
+      barcode_type += 65
+    self.write_bytes(ASCII_GS, 'H', 2) # Print label below barcode
+    self.write_bytes(ASCII_GS, 'w', 3) # Barcode width 3 (0.375/1.0mm thin/thick)
+    self.write_bytes(ASCII_GS, 'k', 3) # Barcode type (listed in .h file)
+    if self._firmware >= 264:
+      size = len(text)
+      if (size > 255):
+        size = 255
+      self.write_bytes(size)
+      for i in range(0, size - 1):
+        self.write_bytes(text[i])
+    else:
+      for i in range(0, len(text) - 1):
+        self.write_bytes(text[i])
+    sleep_us((self._barcode_height + 40) * self._dot_print_time)
 
-    size = len(text)
-    if (size > 255):
-      size = 255
-    self.write_bytes(size)
-    for i in range(0, size - 1):
-      self.write_bytes(text[i])
+  """
+  Alters some chars in ASCII 0x23-0x7E range; see datasheet
+  
+  :param num val: Value of the desired character set
+  """
+  def set_charset(self, val = 0):
+    if val > 15:
+      val = 15
+    self.write_bytes(ASCII_ESC, 'R', val)
 
   def set_code_page(self, val = 0):
     """
     Selects alt symbols for 'upper' ASCII values 0x80-0xFF
 
-    :param str val: Value of the desired character code page
+    :param num val: Value of the desired character code page
     """
     if val > 47:
       val = 47
     if self._cur_code_page is val: return
     self._cur_code_page = val
     self.write_bytes(ASCII_ESC, 't', val)
+
+  """
+  Sets print head heating configuration
+  
+  dots max printing dots, 8 dots per increment
+  time heating time, 10us per increment
+  interval heating interval, 10 us per increment
+
+  ESC 7 n1 n2 n3 Setting Control Parameter Command
+  n1 = "max heating dots" 0-255 -- max number of thermal print head
+      elements that will fire simultaneously.  Units = 8 dots (minus 1).
+      Printer default is 7 (64 dots, or 1/6 of 384-dot width), this code
+      sets it to 11 (96 dots, or 1/4 of width).
+  n2 = "heating time" 3-255 -- duration that heating dots are fired.
+      Units = 10 us.  Printer default is 80 (800 us), this code sets it
+      to value passed (default 120, or 1.2 ms -- a little longer than
+      the default because we've increased the max heating dots).
+  n3 = "heating interval" 0-255 -- recovery time between groups of
+      heating dots on line; possibly a function of power supply.
+      Units = 10 us.  Printer default is 2 (20 us), this code sets it
+      to 40 (throttled back due to 2A supply).
+  More heating dots = more peak current, but faster printing speed.
+  More heating time = darker print, but slower printing speed and
+  possibly paper 'stiction'.  More heating interval = clearer print,
+  but slower printing speed.
+  """
+  def set_heat_config(self, dots = 11, time = 120, interval = 40):
+    self.write_bytes(ASCII_ESC, '7') # Esc 7 (print settings)
+    self.write_bytes(dots, time, interval) # Heating dots, heat time, heat interval
+
+  """
+  Prints a bitmap
+
+  w Width of the image in pixels
+  h Height of the image in pixels
+  bitmap Bitmap data, from a file.
+  fromProgMem
+  """
+  # def print_bitmap(self, w, h, bitmap):
+  #   row_bytes = (w + 7) / 8 # Round up to next byte boundary
+  #   row_bytes_clipped = 48 if row_bytes >= 48 else row_bytes
+
+  #   chunk_height_limit = 256 / row_bytes_clipped
+  #   if chunk_height_limit > self._max_chunk_height:
+  #     chunk_height_limit = self._max_chunk_height
+  #   elif chunk_height_limit < 1:
+  #     chunk_height_limit = 1
+
+  #   row_start = 0
+  #   for i in range(0, h - 1, row_start):
+
 
   def write_bytes(self, *items):
     arr = []

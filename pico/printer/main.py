@@ -1,15 +1,12 @@
 from machine import UART
 from time import sleep
-from thermal_printer import Thermal_Printer, CODEPAGE_WCP1251
+from thermal_printer import Thermal_Printer, CODE39, UPC_A
 
 printer = Thermal_Printer(UART(1, baudrate=19200))
 
 def demo():
+  printer.wake()
   printer.reset()
-  printer.println('Ґанок в Україні')
-  printer.feed(2)
-
-def demo001():
   # Font options
   printer.set_font('B')
   printer.println('FontB')
@@ -52,19 +49,19 @@ def demo001():
   printer.set_size('S')
   printer.println('Small')
 
-  # printer.justify('C')
-  # printer.println('normal\nline\nspacing')
-  # printer.set_line_height(50)
-  # printer.println('Taller\nline\nspacing')
-  # printer.set_line_height() # Reset to default
-  # printer.justify('L')
+  printer.justify('C')
+  printer.println('normal\nline\nspacing')
+  printer.set_line_height(50)
+  printer.println('Taller\nline\nspacing')
+  printer.set_line_height() # Reset to default
+  printer.justify('L')
 
   # Barcode examples:
   # CODE39 is the most common alphanumeric barcode:
-  # printer.printBarcode('ADAFRUT', CODE39)
-  # printer.setBarcodeHeight(100)
+  printer.print_barcode('ADAFRUT', CODE39)
+  printer.set_barcode_height(100)
   # Print UPC line on product barcodes:
-  # printer.printBarcode('123456789123', UPC_A)
+  printer.print_barcode('123456789123', UPC_A)
 
   # Print the 75x75 pixel logo in adalogo.h:
   # printer.printBitmap(adalogo_width, adalogo_height, adalogo_data)
@@ -74,8 +71,8 @@ def demo001():
   # printer.println('Adafruit!')
   # printer.feed(2)
 
-  # printer.sleep()      # Tell printer to sleep
-  # delay(3000L)         # Sleep for 3 seconds
-  # printer.wake()       # MUST wake() before printing again, even if reset
-  # printer.setDefault() # Restore printer to defaults
+  printer.sleep()      # Tell printer to sleep
+  sleep(3)             # Sleep for 3 seconds
+  printer.wake()       # MUST wake() before printing again, even if reset
+  printer.set_default() # Restore printer to defaults
   
