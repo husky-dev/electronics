@@ -1,10 +1,64 @@
 from machine import UART
 from time import sleep
-from thermal_printer import Thermal_Printer, CODE39, UPC_A
+from thermal_printer import Thermal_Printer, CODE39, UPC_A, CODEPAGE_WCP1251
 
-printer = Thermal_Printer(UART(1, baudrate=19200))
+printer = Thermal_Printer(UART(1, baudrate=19200), firmware = 268)
 
 def demo():
+  # printer.inverse_on()
+  # printer.println(' 20.12.2021 (Четверг) ')
+  # printer.inverse_off()
+  printer.set_size('M')
+  printer.println('Погода:')
+  printer.set_size('S')
+
+def print_header(val):
+  printer.bold_on()
+  printer.println(val)
+  printer.bold_off()
+
+def print_spliter():
+  printer.feed(1)
+
+def main():
+  # printer.wake()
+  # printer.reset()
+  # printer.flush()
+
+  printer.inverse_on()
+  # printer.println(' 20.12.2021 (Четверг) ')
+  printer.println(' Hello world ')
+  sleep(1)
+  printer.inverse_off()
+
+  # print_header('Погода:')
+  # printer.println('+3 ... +9 (ясно)')
+  # print_spliter()
+
+  # print_header('Задачі:')
+  # printer.println('- Один')
+  # printer.println('- Два')
+  # printer.println('- Три')
+  # print_spliter()
+
+  # print_header('Курс валют:')
+  # printer.println('USD: 27.24')
+  # printer.println('EUR: 30.82')
+  # print_spliter()
+
+  # print_header('Цитата:')
+  # printer.println('Рискуй. Удача любит смелых')
+  # printer.justify('R')
+  # printer.bold_on()
+  # printer.println('Річард Бренсон')
+  # printer.bold_off()
+  # printer.justify('L')
+  # print_spliter()
+
+  # printer.sleep()
+
+
+def demo_001():
   printer.wake()
   printer.reset()
   # Font options

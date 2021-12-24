@@ -363,10 +363,12 @@ class Thermal_Printer:
   def set_print_mode(self, mask):
     self._print_mode |= mask
     self.write_print_mode()
+    print("[-]: set print mode, mask={0:b}".format(mask))
     self._adjust_char_values(mask)
 
   def unset_print_mode(self, mask):
     self._print_mode &= (~mask) & 0xFF
+    print("[-]: unset print mode, mask={0:b}".format(mask))
     self.write_print_mode()
     self._adjust_char_values(mask)
 
@@ -424,7 +426,7 @@ class Thermal_Printer:
     self.write_bytes(ASCII_FF)
 
   def write_print_mode(self):
-    # print("{0:b}".format(self._print_mode))
+    print("[-]: write print mode, value={0:b}".format(self._print_mode))
     self.write_bytes(ASCII_ESC, '!', self._print_mode)
 
   """
