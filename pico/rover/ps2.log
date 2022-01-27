@@ -1,0 +1,1004 @@
+[+][PS2]: init
+[*][PS2]: read once
+[-][PS2]: delay bigger then MAX_READ_DELAY, now: 164887, last_read_ms: 0, delay: 164887
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 0, delay: 1
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 1
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 1
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 1
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 1
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 2
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 2
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 2
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 2
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 2
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[!][PS2]: control type not ok, expect 41 73 79, bug get ff
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 3
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 3
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 3
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 3
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 3
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11111111, retry: 0, delay: 4
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 4
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 4
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 4
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 4
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 5
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 5
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 5
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 5
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 5
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 6
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 6
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 6
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 6
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 6
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 7
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 7
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 7
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 7
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 7
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 8
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11110011, retry: 1, delay: 8
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 8
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 8
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 8
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 9
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11110011, retry: 1, delay: 9
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 9
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 9
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11110011, retry: 4, delay: 9
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11111111, retry: 0, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11110011, retry: 1, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11110011, retry: 3, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11110011, retry: 1, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11000000, retry: 4, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 00000000
+[*][PS2]: 11000000
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11110011, retry: 1, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11110011, retry: 3, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: invalid mode: 11110011, retry: 0, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 1, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 2, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 3, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: invalid mode: 11111111, retry: 4, delay: 10
+[*][PS2]: reconfig
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11110111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[-][PS2]: keys:START; pos: (lx,ly):0,0; (rx,ry): 0,0
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11110111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[-][PS2]: keys:START; pos: (lx,ly):0,0; (rx,ry): 0,0
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11110111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[-][PS2]: keys:START; pos: (lx,ly):0,0; (rx,ry): 0,0
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11110111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[-][PS2]: keys:START; pos: (lx,ly):0,0; (rx,ry): 0,0
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 10111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[-][PS2]: keys:CROSS; pos: (lx,ly):0,0; (rx,ry): 0,0
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 10111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[-][PS2]: keys:CROSS; pos: (lx,ly):0,0; (rx,ry): 0,0
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
+[*][PS2]: valid mode
+[*][PS2]: pocessing buff_in
+[*][PS2]: 11111111
+[*][PS2]: 01110011
+[*][PS2]: 01011010
+[*][PS2]: 11111111
+[*][PS2]: 11111111
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: 10000000
+[*][PS2]: read once
